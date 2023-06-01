@@ -1,10 +1,11 @@
 def merge_sort(string):
     if len(string) <= 1:
-        return string
+        return string.lower()
 
+    string_lower = string.lower()
     mid = len(string) // 2
-    left = merge_sort(string[:mid])
-    right = merge_sort(string[mid:])
+    left = merge_sort(string_lower[:mid])
+    right = merge_sort(string_lower[mid:])
 
     return merge(left, right)
 
@@ -28,11 +29,26 @@ def merge(left, right):
 
 
 def is_anagram(first_string, second_string):
-    return ""
+    if len(first_string) == 0 or len(second_string) == 0:
+        return (
+            first_string,
+            second_string,
+            False,
+        )
+
+    first_string_sorted = merge_sort(first_string)
+    second_string_sorted = merge_sort(second_string)
+
+    return (
+        first_string_sorted,
+        second_string_sorted,
+        first_string_sorted == second_string_sorted,
+    )
 
 
-word1 = "batata"
-word1_in_list = list(word1)
-word2 = "cenoura"
+word1 = "PEdra"
+# word1_in_list = list(word1)
+word2 = "peRDA"
 
-print(merge_sort(word1))
+# print(merge_sort(word1) == merge_sort(word2))
+print(is_anagram(word1, word2))
