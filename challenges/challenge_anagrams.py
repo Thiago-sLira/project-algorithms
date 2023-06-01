@@ -1,6 +1,6 @@
 def merge_sort(string):
     if len(string) <= 1:
-        return string.lower()
+        return string.lower() or ""
 
     string_lower = string.lower()
     mid = len(string) // 2
@@ -29,15 +29,15 @@ def merge(left, right):
 
 
 def is_anagram(first_string, second_string):
-    if len(first_string) == 0 or len(second_string) == 0:
-        return (
-            first_string,
-            second_string,
-            False,
-        )
-
     first_string_sorted = merge_sort(first_string)
     second_string_sorted = merge_sort(second_string)
+
+    if len(first_string) == 0 or len(second_string) == 0:
+        return (
+            first_string_sorted,
+            second_string_sorted,
+            False,
+        )
 
     return (
         first_string_sorted,
@@ -46,9 +46,10 @@ def is_anagram(first_string, second_string):
     )
 
 
-word1 = "PEdra"
+word1 = "muro"
 # word1_in_list = list(word1)
-word2 = "peRDA"
+word2 = ""
 
 # print(merge_sort(word1) == merge_sort(word2))
 print(is_anagram(word1, word2))
+print(word2.lower())
