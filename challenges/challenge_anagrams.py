@@ -46,10 +46,10 @@ def is_anagram(first_string, second_string):
     )
 
 
-word1 = "muro"
-# word1_in_list = list(word1)
-word2 = ""
+# word1 = "muro"
+# # word1_in_list = list(word1)
+# word2 = ""
 
-# print(merge_sort(word1) == merge_sort(word2))
-print(is_anagram(word1, word2))
-print(word2.lower())
+# # print(merge_sort(word1) == merge_sort(word2))
+# print(is_anagram(word1, word2))
+# print(word2.lower())
